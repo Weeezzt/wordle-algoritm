@@ -1,7 +1,7 @@
 const {feedback} = require('../js/algoritmAv2.js');
 const {chooseWord} = require('../js/algoritmB.js');
 
-test('feedback with chooseWord och rätt gissning', () => {
+test('feedback with chooseWord och correct guess', () => {
     expect(feedback(chooseWord(['KATT', 'HUNDEN', 'FISKEN', 'HÄSTEN', 'KANIN'], 4, false), 'KATT')).toEqual([
         { K: 'correct' },
         { A: 'correct' },
@@ -10,7 +10,7 @@ test('feedback with chooseWord och rätt gissning', () => {
     ])
 })
 
-test('feedback with chooseWord och fel gissning', () => {
+test('feedback with chooseWord and wrong guess', () => {
     expect(feedback(chooseWord(['HUND', 'MATTE', 'TÄNDER', 'LEJON',], 5, true), 'REGNA')).toEqual([
         { R: 'incorrect' },
         { E: 'correct' },
@@ -20,7 +20,7 @@ test('feedback with chooseWord och fel gissning', () => {
     ])
 })
 
-test('feedback with chooseWord och totalt fel gissning', () => {
+test('feedback with chooseWord completely wrong guess', () => {
     expect(feedback(chooseWord(['KATT', 'HUNDEN', 'FISKEN', 'HÄSTEN', 'KANIN'], 4, false), 'HUND')).toEqual([
         { H: 'incorrect' },
         { U: 'incorrect' },

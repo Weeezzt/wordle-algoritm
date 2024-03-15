@@ -1,14 +1,13 @@
-//Test to see if the algoa function is working properly 
 
 const { feedback } = require("../js/algoritmAv2.js")
 
-test('feedback function', () => {
+test('test so that it gives correct to correct letter in the guess', () => {
     expect(feedback('CYKLA', 'BÄNKA')).toContainEqual(
         { A: 'correct' }
     )
 })
 
-test('feedback function', () => {
+test('Checks if every letter thats not there gets incorrect', () => {
     expect(feedback('CYKLA', 'RETUR')).toEqual([
         { R: 'incorrect' },
         { E: 'incorrect' },
@@ -18,7 +17,7 @@ test('feedback function', () => {
     ])
 })
 
-test('feedback function', () => {
+test('cecks if a perfect guess gets everything correct', () => {
     expect(feedback('CYKLA', 'CYKLA')).toEqual([
         { C: 'correct' },
         { Y: 'correct' },
@@ -28,17 +27,7 @@ test('feedback function', () => {
     ])
 })
 
-test('feedback function', () => {
-    expect(feedback('CYKLA', 'HALLÅ')).toEqual([
-        { H: 'incorrect' },
-        { A: 'misplaced' },
-        { L: 'incorrect' },
-        { L: 'correct' },
-        { Å: 'incorrect' }
-    ])
-})
-
-test('feedback function', () => {
+test('tests if misplaced works for letter at wrong position', () => {
     expect(feedback('BALEN', 'PELAD')).toEqual([
         { P: 'incorrect' },
         { E: 'misplaced' },
@@ -48,7 +37,17 @@ test('feedback function', () => {
     ])
 })
 
-test('feedback function', () => {
+test('tests so that the extra letter gets incorrect', () => {
+    expect(feedback('CYKLA', 'HALLÅ')).toEqual([
+        { H: 'incorrect' },
+        { A: 'misplaced' },
+        { L: 'incorrect' },
+        { L: 'correct' },
+        { Å: 'incorrect' }
+    ])
+})
+
+test('tests two corrects of same letter', () => {
     expect(feedback('BOLLA', 'LILLA')).toEqual([
         { L: 'incorrect' },
         { I: 'incorrect' },
@@ -58,7 +57,7 @@ test('feedback function', () => {
     ])
 })
 
-test('feedback function', () => {
+test('tests special case', () => {
     expect(feedback('TTTII', 'TIIIT')).toEqual([
         { T: 'correct' },
         { I: 'incorrect' },
@@ -68,7 +67,7 @@ test('feedback function', () => {
     ])
 })
 
-test('feedback function', () => {
+test('tests special case', () => {
     expect(feedback('TIIIT', 'TTTII')).toEqual([
         { T: 'correct' },
         { T: 'misplaced' },
