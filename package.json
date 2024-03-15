@@ -1,0 +1,17 @@
+{
+  "name": "wordle-algoritm",
+  "version": "1.0.0",
+  "description": "B7, inlämning 1: Testad Wordle-algoritm",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
